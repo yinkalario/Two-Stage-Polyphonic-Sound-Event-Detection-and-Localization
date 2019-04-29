@@ -33,7 +33,6 @@ Model_DOA = 'pretrained_CRNN10' # 'pretrained_CRNN10' | 'pretrained_VGG9'
 model_pool_type = 'avg'         # 'max' | 'avg'
 model_pool_size = (2,2)
 model_interp_ratio = 16
-MIX_UP = False
 
 loss_type = 'MAE'
 ################# param #################
@@ -57,29 +56,6 @@ hdf5_folder_name = '{}fs_{}nfft_{}hs_{}melb'.format(fs, nfft, hopsize, mel_bins)
 save_interval = 2000
 lr_interval = 2000
 ########################################################################
-
-def mixup(batch_x, batch_y, alpha, cuda):
-    '''
-    Mixup for data augmentation
-
-    Input:
-        batch_x: (batch_size, channel_num, time, frequency)
-        batch_y: (batch_size, time, class_num)
-        alpha: 0.0-1.0, 0.5
-        cuda: using gpu
-    '''
-
-    batch_size = batch_x.shape[0]
-
-    indexes = np.arange(batch_size)
-    np.random.shuffle(indexes)
-    lams = torch.Tensor(np.random.beta(alpha, alpha, batch_size))
-    if cuda:
-        lams = lams.cuda()
-    mixed_x = lams[:,None,None,None] * batch_x + (1. - lams[:,None,None,None]) * batch_x[indexes]
-    mixed_y = lams[:,None,None] * batch_y + (1. - lams[:,None,None]) * batch_y[indexes]
-
-    return mixed_x, mixed_y
 
 
 def train(args, data_generator, model, optimizer, logging):
@@ -191,9 +167,6 @@ def train(args, data_generator, model, optimizer, logging):
             'events':   to_torch(batch_y_dict['events'], args.cuda),
             'doas':  to_torch(batch_y_dict['doas'], args.cuda)
         }
-
-        if MIX_UP:
-            batch_x, batch_y_dict['events'] = mixup(batch_x, batch_y_dict['events'], alpha=1, cuda=args.cuda)
 
         # Forward
         model.train()
@@ -411,7 +384,6 @@ if __name__ == '__main__':
     args.model_pool_type = model_pool_type
     args.model_pool_size = model_pool_size
     args.model_interp_ratio = model_interp_ratio
-    args.mixup = MIX_UP
     args.loss_type = loss_type
 
     class_num = len(event_labels)
@@ -451,7 +423,7 @@ if __name__ == '__main__':
     global pretrained_path
     pretrained_path = os.path.join(appendixes_dir, 'models_saved', 'sed_only',
                                 'model_' + Model_SED + '_{}'.format(args.audio_type) + '_fold_{}'.format(args.fold) +
-                                '_seed_{}'.format(args.seed), 'iter_42000.pth')
+                                '_seed_{}'.format(args.seed), 'iter_50000.pth')
 
     '''
     2. Model
