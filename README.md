@@ -4,7 +4,7 @@ Sound event detection (SED) and localization refer to recognizing sound events a
 
 ## Citation
 
-*he code in this repo is easy to understand and implement. Please also check our baseline method in https://github.com/qiuqiangkong/dcase2019_task3.
+The code in this repo is easy to understand and implement. Please also check our baseline method in https://github.com/qiuqiangkong/dcase2019_task3.
 
 If you found our codes are useful, please cite the following papers:
 
@@ -13,3 +13,20 @@ If you found our codes are useful, please cite the following papers:
 
 >[2] Qiuqiang Kong, Yin Cao, Turab Iqbal, Yong Xu, Wenwu Wang, Mark D. Plumbley. Cross-task learning for audio tagging, sound event detection and spatial localization: DCASE 2019 baseline systems. arXiv preprint arXiv:1904.03476 (2019).
 >Paper URL: https://arxiv.org/abs/1904.03476
+
+
+## Dataset
+
+The dataset can be downloaded from http://dcase.community/challenge2019/task-sound-event-localization-and-detection. This dataset contains 400 audio recordings splitted into 4 folds. Two formats of audios are givin: 1) First-Order of Ambisonics; 2) tetrahedral microphone array. There are 11 kinds of isolated sound events in total. The audio recordings are mixtures of isolated sound events and natural ambient noise. The sound events, which have a polyphony of up to two, are convolved with impulse responses collected from five indoor locations.
+
+## The method
+
+The input features used is log mel and GCC-PHAT spectrograms, the detailed description can be found in the paper.
+
+### Input Features
+
+### Network Architecture
+<img src="appendixes/.png" width="500">
+
+
+
