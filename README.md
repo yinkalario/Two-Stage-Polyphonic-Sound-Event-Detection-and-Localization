@@ -133,14 +133,14 @@ Train ER: 0.016,  Train F-score: 0.992,  Train DOA error: 1.003,  Train DOA fram
 Valid ER: 0.015,  Valid F-score: 0.992,  Valid DOA error: 13.358,  Valid DOA frame recall: 0.955,  Valid SELD error: 0.036
 Iters: 52000,  Epochs/Batches: 48/64,  Train time: 24.137s,  Eval time: 32.092s
 ----------------------------------------------------------------------------------------------------------------------------------------------
-main.py[line:179] INFO Checkpoint saved to /vol/vssp/msos/YinC/workspace/DCASE2019/task3/mycode_v11/appendixes/models_saved/doa_only/model_pretrained_CRNN10_mic_fold_1_seed_10/iter_52000.pth
-main.py[line:138] INFO ----------------------------------------------------------------------------------------------------------------------------------------------
-utilities.py[line:204] INFO Train SELD loss: 0.049,  Train SED loss: 0.000,  Train DOA loss: 0.049,  Train SED mAP(micro): 1.000,  Train SED mAP(macro): 1.000
-utilities.py[line:213] INFO Valid SELD loss: 0.300,  Valid SED loss: 0.000,  Valid DOA loss: 0.300,  Valid SED mAP(micro): 1.000,  Valid SED mAP(macro): 1.000
-utilities.py[line:221] INFO Train ER: 0.020,  Train F-score: 0.990,  Train DOA error: 0.898,  Train DOA frame recall: 0.958,  Train SELD error: 0.019
-utilities.py[line:229] INFO Valid ER: 0.017,  Valid F-score: 0.991,  Valid DOA error: 11.775,  Valid DOA frame recall: 0.962,  Valid SELD error: 0.032
-main.py[line:163] INFO Iters: 52200,  Epochs/Batches: 48/264,  Train time: 24.184s,  Eval time: 31.095s
-main.py[line:164] INFO ----------------------------------------------------------------------------------------------------------------------------------------------
+Checkpoint saved to /vol/vssp/msos/YinC/workspace/DCASE2019/task3/mycode_v11/appendixes/models_saved/doa_only/model_pretrained_CRNN10_mic_fold_1_seed_10/iter_52000.pth
+----------------------------------------------------------------------------------------------------------------------------------------------
+Train SELD loss: 0.049,  Train SED loss: 0.000,  Train DOA loss: 0.049,  Train SED mAP(micro): 1.000,  Train SED mAP(macro): 1.000
+Valid SELD loss: 0.300,  Valid SED loss: 0.000,  Valid DOA loss: 0.300,  Valid SED mAP(micro): 1.000,  Valid SED mAP(macro): 1.000
+Train ER: 0.020,  Train F-score: 0.990,  Train DOA error: 0.898,  Train DOA frame recall: 0.958,  Train SELD error: 0.019
+Valid ER: 0.017,  Valid F-score: 0.991,  Valid DOA error: 11.775,  Valid DOA frame recall: 0.962,  Valid SELD error: 0.032
+Iters: 52200,  Epochs/Batches: 48/264,  Train time: 24.184s,  Eval time: 31.095s
+----------------------------------------------------------------------------------------------------------------------------------------------
 </pre>
 
 
