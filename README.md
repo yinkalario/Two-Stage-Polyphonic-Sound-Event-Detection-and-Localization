@@ -111,7 +111,7 @@ Valid SELD loss: 0.045,  Valid SED loss: 0.045,  Valid DOA loss: 2.659,  Valid S
 Train ER: 0.031,  Train F-score: 0.984,  Train DOA error: 80.386,  Train DOA frame recall: 0.927,  Train SELD error: 0.142
 Valid ER: 0.144,  Valid F-score: 0.920,  Valid DOA error: 78.376,  Valid DOA frame recall: 0.864,  Valid SELD error: 0.199
 Iters: 52000,  Epochs/Batches: 48/64,  Train time: 42.015s,  Eval time: 47.036s
- ----------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------
 Checkpoint saved to /vol/vssp/msos/YinC/workspace/DCASE2019/task3/mycode_v11/appendixes/models_saved/sed_only/model_CRNN10_mic_fold_1_seed_10/iter_52000.pth
 ----------------------------------------------------------------------------------------------------------------------------------------------
 Train SELD loss: 0.010,  Train SED loss: 0.010,  Train DOA loss: 2.720,  Train SED mAP(micro): 0.927,  Train SED mAP(macro): 0.908
