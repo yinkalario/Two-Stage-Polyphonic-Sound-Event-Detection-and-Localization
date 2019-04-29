@@ -26,7 +26,7 @@ The input features used is log mel and GCC-PHAT spectrograms, the detailed descr
 ### Input Features
 
 ### Network Architecture
-<img src="appendixes/.png" width="500">
+<img src="appendixes/figures/two_stage_SEDL.pdf" width="500">
 
 
 
