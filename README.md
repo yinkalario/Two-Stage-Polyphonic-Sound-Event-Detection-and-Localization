@@ -170,11 +170,11 @@ Final results can be seen below:
 
 The visualization of prediction results for no overlapping sound:
 
-<img src="appendixes/figures/twp_stage_eval_ov1.png" width="500">
+<img src="appendixes/figures/twp_stage_eval_ov1.png" width="900">
 
 The visualization of prediction results for overlapping sound:
 
-<img src="appendixes/figures/two_stage_eval_ov2.png" width="500">
+<img src="appendixes/figures/two_stage_eval_ov2.png" width="900">
 
 
 ### 5. Summary
