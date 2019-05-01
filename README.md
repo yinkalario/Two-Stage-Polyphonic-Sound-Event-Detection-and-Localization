@@ -162,11 +162,19 @@ Test ER: 0.149,  Test F-score: 0.916,  Test DOA error: 9.993,  Test DOA frame re
 </pre>
 
 ### 4. Results
+The two-stage method is compared with other methods, which are described in the paper. Please refer to [[1]](http://) for detailed results and discussions.
+
 Final results can be seen below:
 
-<img src="appendixes/figures/scores.png" width="500">
+<img src="appendixes/figures/metrics_scores.png" width="500">
 
-Please refer to [[1]](http://) for detailed discussion.
+The visualization of prediction results for no overlapping sound:
+
+<img src="appendixes/figures/twp_stage_eval_ov1.png" width="500">
+
+The visualization of prediction results for overlapping sound:
+
+<img src="appendixes/figures/two_stage_eval_ov2.png" width="500">
 
 
 ### 5. Summary
