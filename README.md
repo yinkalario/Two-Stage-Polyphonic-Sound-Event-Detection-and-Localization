@@ -6,8 +6,8 @@ Sound event detection (SED) and localization refer to recognizing sound events a
 
 The code in this repo is easy to understand and implement. If you use our codes in any format, please consider citing the following paper:
 
->[1] Yin Cao, Qiuqiang Kong, Turab Iqbal, Fengyan An, Wenwu Wang, Mark D. Plumbley. Polyphonic Sound Event Detection and Localization Using Two-Stage Strategy. arXiv preprint arXiv: 
->Paper URL: 
+>[1] Yin Cao, Qiuqiang Kong, Turab Iqbal, Fengyan An, Wenwu Wang, Mark D. Plumbley. Polyphonic Sound Event Detection and Localization Using Two-Stage Strategy. arXiv preprint arXiv: 1905.00268v2
+>Paper URL: https://arxiv.org/abs/1905.00268
 
 You could also check our cross-task baseline method in https://github.com/qiuqiangkong/dcase2019_task3
 
@@ -29,7 +29,7 @@ Log mel features mainly focues on sound event detection, whereas GCC-PHAT featur
 
 <img src="appendixes/figures/two_stage_SEDL.png" width="800">
 
-Please refer to [[1]](http://) for detailed description of the method.
+Please refer to [[1]](https://arxiv.org/abs/1905.00268) for detailed description of the method.
 
 
 ## Using codes
@@ -162,7 +162,7 @@ Test ER: 0.149,  Test F-score: 0.916,  Test DOA error: 9.993,  Test DOA frame re
 </pre>
 
 ### 4. Results
-The two-stage method is compared with other methods, which are described in the paper. Please refer to [[1]](http://) for detailed results and discussions.
+The two-stage method is compared with other methods, which are described in the paper. Please refer to [[1]](https://arxiv.org/abs/1905.00268) for detailed results and discussions.
 
 Final results can be seen below:
 
