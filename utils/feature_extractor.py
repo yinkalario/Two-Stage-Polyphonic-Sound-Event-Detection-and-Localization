@@ -79,8 +79,6 @@ class LogMelGccExtractor():
                                 pad_mode='reflect'))**2        
         S_mel = np.dot(self.melW, S).T
         S_logmel = librosa.power_to_db(S_mel, ref=1.0, amin=1e-10, top_db=None)
-        # pdb.set_trace()
-        sio.savemat('./appendixes/figures/logmel.mat', {'logmel': S_logmel})
         S_logmel = np.expand_dims(S_logmel, axis=0)
 
         return S_logmel
@@ -112,13 +110,6 @@ class LogMelGccExtractor():
             cc = np.concatenate((cc[-mel_bins//2:], cc[:mel_bins//2]))
             gcc_phat.append(cc)
         gcc_phat = np.array(gcc_phat)
-        # plt.close('all')
-        # plt.matshow(gcc_phat, origin='lower', aspect='auto', cmap='jet')
-        # plt.colorbar()
-        # plt.savefig('./appendixes/figures/fig5.eps')
-        # sio.savemat('./appendixes/figures/sig.mat', {'sig': sig, 'refsig': refsig})
-        # pdb.set_trace()
-        # sio.savemat('./appendixes/figures/gcc_phat.mat', {'gcc_phat': gcc_phat})
         gcc_phat = gcc_phat[None,:,:]
 
         return gcc_phat
@@ -230,7 +221,7 @@ def extract_features(args):
                         file=text_file)
                     tqdm.write("Silent file removed in feature extractor: {}".format(audio_fn))
                 continue
-            pdb.set_trace()
+
             # features
             feature = RT_preprocessing(audio, args.feature_type)
             '''(channels, time, frequency)'''               
