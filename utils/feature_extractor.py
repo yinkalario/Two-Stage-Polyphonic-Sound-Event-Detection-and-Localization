@@ -149,22 +149,9 @@ def RT_preprocessing(audio, feature_type):
                                     window=window,
                                     fmin=fmin)
 
-    '''This step needs to be considered'''
-    # audio = audio / (np.max(np.abs(audio)) + np.finfo(np.float).eps)
-
     feature = extractor.transform(audio)
     '''(channels, seq_len, mel_bins)'''
     '''(channels, time, frequency)'''
-
-    # # Plot log Mel for debug
-    # plt.close('all')
-    # plt.figure(figsize=(10, 4))
-    # librosa.display.specshow(librosa.power_to_db(abs(feat).T,ref=np.max),y_axis='mel',fmax=fs//2,x_axis='time',cmap='jet')
-    # plt.colorbar(format='%+2.0f dB')
-    # plt.title('Mel spectrogram')
-    # plt.tight_layout()
-    # plt.savefig('./appendixes/figures/fig5.eps')
-    # plt.show()
 
     return feature
 
