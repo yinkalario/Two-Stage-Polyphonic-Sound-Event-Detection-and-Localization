@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Data directory
+DATASET_DIR='/vol/vssp/AP_datasets/audio/dcase2019/task3/dataset_root/'
+
+# Feature directory
+FEATURE_DIR='/vol/vssp/msos/YinC/workspace/Dataset_Features/DCASE2019/task3/'
+
+# Workspace
+WORKSPACE='/vol/vssp/msos/YinC/workspace/DCASE2019/task3/'
+cd $WORKSPACE
+
 FEATURE_TYPE='logmelgcc'
 AUDIO_TYPE='mic'
 SEED=10
@@ -13,7 +23,7 @@ TASK_TYPE='sed_only'
 for FOLD in {1..4}
     do
     echo $'\nFold: '$FOLD
-    CUDA_VISIBLE_DEVICES=$GPU_ID python ${WORKSPACE}main.py train --workspace=$WORKSPACE --feature_dir=$FEATURE_DIR --feature_type=$FEATURE_TYPE --audio_type=$AUDIO_TYPE --task_type=$TASK_TYPE --fold=$FOLD --seed=$SEED
+    CUDA_VISIBLE_DEVICES=$GPU_ID python ${WORKSPACE}main.py train --workspace=$WORKSPACE --feature_dir=$FEATURE_DIR --dataset_dir=$DATASET_DIR --feature_type=$FEATURE_TYPE --audio_type=$AUDIO_TYPE --task_type=$TASK_TYPE --fold=$FOLD --seed=$SEED
 done
 
 # Train DOA
@@ -22,7 +32,7 @@ TASK_TYPE='doa_only'
 for FOLD in {1..4}
     do
     echo $'\nFold: '$FOLD
-    CUDA_VISIBLE_DEVICES=$GPU_ID python ${WORKSPACE}main.py train --workspace=$WORKSPACE --feature_dir=$FEATURE_DIR --feature_type=$FEATURE_TYPE --audio_type=$AUDIO_TYPE --task_type=$TASK_TYPE --fold=$FOLD --seed=$SEED
+    CUDA_VISIBLE_DEVICES=$GPU_ID python ${WORKSPACE}main.py train --workspace=$WORKSPACE --feature_dir=$FEATURE_DIR --dataset_dir=$DATASET_DIR --feature_type=$FEATURE_TYPE --audio_type=$AUDIO_TYPE --task_type=$TASK_TYPE --fold=$FOLD --seed=$SEED
 done
 
 

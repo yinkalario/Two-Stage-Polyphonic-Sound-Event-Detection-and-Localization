@@ -99,6 +99,7 @@ def train(args, data_generator, model, optimizer, logging):
             shutil.rmtree(temp_submissions_dir_train, ignore_errors=True)
             os.makedirs(temp_submissions_dir_train, exist_ok=False)
             train_metrics = evaluation.evaluate(
+                        args=args,
                         data_generator=data_generator, 
                         data_type='train', 
                         max_audio_num=30,
@@ -118,6 +119,7 @@ def train(args, data_generator, model, optimizer, logging):
                 shutil.rmtree(temp_submissions_dir_valid, ignore_errors=True)
                 os.makedirs(temp_submissions_dir_valid, exist_ok=False)
                 valid_metrics = evaluation.evaluate(
+                        args=args,
                         data_generator=data_generator, 
                         data_type='valid', 
                         max_audio_num=30,
@@ -209,6 +211,7 @@ def inference(args, data_generator, logging):
         shutil.rmtree(fold_submissions_dir, ignore_errors=True)
         os.makedirs(fold_submissions_dir, exist_ok=False)
         test_metrics = evaluation.evaluate(
+                args=args,
                 data_generator=data_generator, 
                 data_type='test', 
                 max_audio_num=None,
@@ -235,6 +238,7 @@ def inference(args, data_generator, logging):
             model.cuda()
 
         test_metrics = evaluation.evaluate(
+                args=args,
                 data_generator=data_generator, 
                 data_type='test', 
                 max_audio_num=None,
@@ -265,6 +269,7 @@ def inference(args, data_generator, logging):
         shutil.rmtree(fold_submissions_dir, ignore_errors=True)
         os.makedirs(fold_submissions_dir, exist_ok=False)
         test_metrics = evaluation.evaluate(
+                args=args,
                 data_generator=data_generator, 
                 data_type='test', 
                 max_audio_num=None,
@@ -297,7 +302,7 @@ def inference_all_fold(args):
         'model_' + args.model  + '_{}'.format(args.audio_type) + \
             '_seed_{}'.format(args.seed), 'test')    
 
-    gt_meta_dir = '/vol/vssp/AP_datasets/audio/dcase2019/task3/dataset_root/metadata_dev/'
+    gt_meta_dir = os.path.join(args.dataset_dir, 'metadata_dev')
     sed_scores, doa_er_metric, seld_metric = evaluation.calculate_SELD_metrics(gt_meta_dir, test_submissions_dir, score_type='all')
 
     loss = [0.0, 0.0, 0.0]
@@ -320,6 +325,8 @@ if __name__ == '__main__':
                                 help='workspace directory')
     parser_train.add_argument('--feature_dir', type=str, required=True,
                                 help='feature directory')
+    parser_train.add_argument('--dataset_dir', type=str, required=True,
+                                help='dataset directory')
     parser_train.add_argument('--feature_type', type=str, required=True,
                                 choices=['logmel', 'logmelgcc'])
     parser_train.add_argument('--audio_type', type=str, required=True, 
@@ -336,6 +343,8 @@ if __name__ == '__main__':
                                 help='workspace directory')
     parser_inference.add_argument('--feature_dir', type=str, required=True,
                                 help='feature directory')
+    parser_inference.add_argument('--dataset_dir', type=str, required=True,
+                                help='dataset directory')
     parser_inference.add_argument('--feature_type', type=str, required=True,
                                 choices=['logmel', 'logmelgcc'])
     parser_inference.add_argument('--audio_type', type=str, required=True, 
@@ -352,6 +361,8 @@ if __name__ == '__main__':
     parser_inference_all = subparsers.add_parser('inference_all')
     parser_inference_all.add_argument('--workspace', type=str, required=True,
                                 help='workspace directory')
+    parser_inference_all.add_argument('--dataset_dir', type=str, required=True,
+                                help='dataset directory')
     parser_inference_all.add_argument('--audio_type', type=str, required=True, 
                                 choices=['foa', 'mic'], help='audio type')
     parser_inference_all.add_argument('--task_type', type=str, required=True,
