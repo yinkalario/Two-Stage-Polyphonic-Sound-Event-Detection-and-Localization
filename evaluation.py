@@ -93,6 +93,8 @@ def evaluate(data_generator, data_type, max_audio_num, task_type, model, cuda, l
                 output['events'] = np.concatenate((temp, 
                         np.zeros((1, output['events'].shape[1]-temp.shape[1], temp.shape[2]))), axis=1)
         elif task_type == 'two_staged_eval':
+            with h5py.File(temp_hdf5_path, 'w') as hf:
+                hf.create_dataset('sed_pred', data=output['events'], dtype=np.float32)
             with h5py.File(temp_hdf5_path, 'r') as hf:
                 output['events'] = hf['sed_pred'][:]
         #############################################################################################################
